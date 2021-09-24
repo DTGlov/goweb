@@ -1,0 +1,21 @@
+{{template "base" .}}
+
+{{define "title"}}Post #{{.Post.ID}}{{end}}
+
+{{define "main"}}
+{{with .Post}}
+<div class="post">
+    <div class="metadata">
+        <strong>{{.Title}}</strong>
+        <span>#{{.ID}}</span>
+    </div>
+ <div class="content">
+        <p class="">{{.Content}}</p>
+ </div>
+    <div class="metadata">
+        <time>Created:{{humanDate .Created}}</time>
+        <time>Expires:{{humanDate .Expires}}</time>
+    </div>
+</div>
+{{end}}
+{{end}}

@@ -1,0 +1,29 @@
+{{template "base" .}}
+
+{{define "title"}}Home{{end}}
+
+{{define "main"}}
+
+<h2 class="latest">Latest Posts</h2>
+ {{if .Posts}}
+     <table>
+        <tr>
+            <th>Title</th>
+            <th>Created</th>
+            <th>ID</th>
+        </tr>
+        {{range .Posts}}
+        <tr>
+            <td><a href='/post/{{.ID}}'>{{.Title}}</a></td>
+            <td>{{humanDate .Created}}</td>
+            <td>#{{.ID}}</td>
+        </tr>
+        {{end}}
+    </table>
+    {{else}}
+ <p class="post">No Posts available</p>
+    {{end}}
+
+
+
+{{end}}
